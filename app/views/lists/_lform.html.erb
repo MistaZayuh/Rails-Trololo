@@ -1,0 +1,12 @@
+<%= form_with(model: @list, local: true, class: "ui form") do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "input" %>
+  </div>
+  <div class="field">
+    <%= f.label :priority %>
+    <%= f.select :priority, options_for_select([['High', 1], ['Medium', 2], ['Low', 3]]) %>
+    <br />
+  </div>
+ <%= f.submit class: "ui blue button" %>
+<% end %>

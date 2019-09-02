@@ -12,16 +12,16 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.create_board(board_params)
-    redirect_to @board
+    Board.create_board(board_params)
+    redirect_to root_path
   end
 
   def edit
   end
 
   def update
-    @board = Board.update_board(board_params)
-    redirect_to @board
+    Board.update_board(board_params, @board.id)
+    redirect_to board_path(@board)
   end
 
   def destroy 
