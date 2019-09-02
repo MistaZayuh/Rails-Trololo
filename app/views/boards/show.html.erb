@@ -4,5 +4,6 @@
     <li><%= link_to list.name, board_list_path(@board, list) %></li>
   <% end %>
 </ol>
-<%= link_to "Edit Board", edit_board_path(@board), class: "ui green button" %>
-<%= link_to "Delete Board", @board, method: :delete, class: "ui red button" %>
+<%= link_to "Edit Board", edit_board_path(@board), class: "ui green inverted button" %>
+<%= link_to "Delete Board", @board, method: :delete, class: "ui red inverted button" %>
+<%= link_to "New List", new_list_path(@board), class: "ui blue inverted button" %>

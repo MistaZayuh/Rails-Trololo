@@ -5,12 +5,12 @@ class ListsController < ApplicationController
   end
 
   def new
-    @list = @board.lists.new
+    @list = List.new
   end
 
   def create
-    List.create_list(list_params, @board.id)
-    redirect_to customers_path
+    @list = List.create_list(list_params, @board)
+    redirect_to board_list_path(@board, @list)
   end
 
   def edit
@@ -27,15 +27,15 @@ class ListsController < ApplicationController
   end
 
   private
-  def set_board
-    @board = Board.find(params[:id])
-  end
+    def set_board
+      @board = Board.find(params[:board_id])
+    end
 
-  def set_list
-    @list = List.find(params[:id])
-  end
+    def set_list
+      @list = List.find(params[:id])
+    end
 
-  def list_params
-    params.require(:list).permit(:name, :priority)
-  end
+    def list_params
+      params.require(:list).permit(:name, :priority)
+    end
 end
